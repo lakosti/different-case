@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+      aperiam consequatur commodi voluptas molestiae! Voluptate quam, voluptatum
+      cupiditate reiciendis earum possimus, consectetur perspiciatis totam ipsa
+      veritatis a adipisci quia non. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Exercitationem aperiam consequatur commodi voluptas
+      molestiae! Voluptate quam, voluptatum cupiditate reiciendis earum
+      possimus, consectetur perspiciatis totam ipsa veritatis a adipisci quia
+      non. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Exercitationem aperiam consequatur commodi voluptas molestiae! Voluptate
+      quam, voluptatum cupiditate reiciendis earum possimus, consectetur
+      perspiciatis totam ipsa veritatis a adipisci quia non.
+    </p>
+    <button data-modal-open class="modal-btn">Open modal window</button>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+      aperiam consequatur commodi voluptas molestiae! Voluptate quam, voluptatum
+      cupiditate reiciendis earum possimus, consectetur perspiciatis totam ipsa
+      veritatis a adipisci quia non. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Exercitationem aperiam consequatur commodi voluptas
+      molestiae! Voluptate quam, voluptatum cupiditate reiciendis earum
+      possimus, consectetur perspiciatis totam ipsa veritatis a adipisci quia
+      non. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Exercitationem aperiam consequatur commodi voluptas molestiae! Voluptate
+      quam, voluptatum cupiditate reiciendis earum possimus, consectetur
+      perspiciatis totam ipsa veritatis a adipisci quia non.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+      aperiam consequatur commodi voluptas molestiae! Voluptate quam, voluptatum
+      cupiditate reiciendis earum possimus, consectetur perspiciatis totam ipsa
+      veritatis a adipisci quia non. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Exercitationem aperiam consequatur commodi voluptas
+      molestiae! Voluptate quam, voluptatum cupiditate reiciendis earum
+      possimus, consectetur perspiciatis totam ipsa veritatis a adipisci quia
+      non. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Exercitationem aperiam consequatur commodi voluptas molestiae! Voluptate
+      quam, voluptatum cupiditate reiciendis earum possimus, consectetur
+      perspiciatis totam ipsa veritatis a adipisci quia non.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+      aperiam consequatur commodi voluptas molestiae! Voluptate quam, voluptatum
+      cupiditate reiciendis earum possimus, consectetur perspiciatis totam ipsa
+      veritatis a adipisci quia non. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Exercitationem aperiam consequatur commodi voluptas
+      molestiae! Voluptate quam, voluptatum cupiditate reiciendis earum
+      possimus, consectetur perspiciatis totam ipsa veritatis a adipisci quia
+      non. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Exercitationem aperiam consequatur commodi voluptas molestiae! Voluptate
+      quam, voluptatum cupiditate reiciendis earum possimus, consectetur
+      perspiciatis totam ipsa veritatis a adipisci quia non.
+    </p>
+    <a href="./index.html">come back</a>
+    <div class="backdrop is-hidden" data-backdrop>
+      <div class="modal">
+        <img src="./img/img.jpg" alt="" />
+        <button data-modal-close class="modal-close-btn">close</button>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const refs = {
+          openModalBtn: document.querySelector("[data-modal-open]"),
+          closeModalBtn: document.querySelector("[data-modal-close]"),
+          backdrop: document.querySelector("[data-backdrop]"),
+        };
+
+        refs.openModalBtn.addEventListener("click", toggleModal);
+        refs.closeModalBtn.addEventListener("click", toggleModal);
+
+        function toggleModal() {
+          refs.backdrop.classList.toggle("is-hidden");
+        }
+      })();
+    </script>
+  </body>
+</html>
