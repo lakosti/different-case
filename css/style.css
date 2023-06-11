@@ -1,37 +1,53 @@
 :root {
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.product-thumb::before {
-  display: inline-block;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(59, 58, 58, 0.7);
-  opacity: 0;
-}
 p {
   margin: 0;
 }
-
+img {
+  display: block;
+}
+.wrapper {
+  overflow: hidden;
+}
 .product-thumb {
   position: relative;
   width: 640px;
   height: 360px;
   margin: 0 auto;
+  overflow: hidden;
+}
+.product-thumb::before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(59, 58, 58, 0.7);
+  opacity: 0;
+  transform: translate(-100%);
+  transition: transform 250ms var(--timing-function);
+}
+.wrapper:hover .product-thumb::before {
+  transform: translate(0);
 }
 .product-action {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-weight: 800;
   font-size: 64px;
+  display: flex;
   letter-spacing: 2px;
   text-transform: uppercase;
   list-style: none;
   color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
+
   opacity: 0;
+  /* transition: opacity 250ms var(--timing-function); */
 }
 .product-thumb:hover .product-action {
   opacity: 1;
@@ -40,15 +56,13 @@ p {
   opacity: 1;
 }
 /* ФИКСИРОВАНЫЙ ХЕДЕР */
-img {
-  display: block;
-}
+
 .page-header {
   position: fixed;
+  top: 0;
   width: 100%;
   height: 70px;
   background-color: rgba(101, 135, 124, 0.6);
-  top: 0;
 }
 /* МОДАЛЬНОЕ ОКНО */
 .backdrop.is-hidden {
@@ -62,20 +76,24 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(50, 48, 48, 0.4);
+  opacity: 1;
+  transition: opacity 250ms var(--timing-function);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
-  min-height: 400px;
-  min-width: 600px;
-
+  transform: translate(-50%, -50%) scale(1);
+  min-height: 700px;
+  min-width: 900px;
   background-color: rgb(126, 187, 240);
+  transition: transform 250ms var(--timing-function);
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
 }
 .modal img {
-  min-height: 400px;
+  min-height: 700px;
 }
 .modal-close-btn {
   position: absolute;
@@ -226,4 +244,68 @@ img {
 }
 .line-link:hover::after {
   transform: scaleX(1);
+}
+/* FLIP CARD */
+
+.scene {
+  width: 200px;
+  height: 260px;
+  border: 1px solid #ccc;
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+/* .card.is-flipped {
+  transform: rotateY(180deg);
+} */
+.scene:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: red;
+}
+
+.card__face--back {
+  background: blue;
+  transform: rotateY(180deg);
+}
+.scene-flip {
+  width: 300px;
+  height: 300px;
+  perspective: 600px;
+}
+.box {
+  height: 100%;
+  background-image: url(../img/maxresdefault.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotateY(0);
+  transition: transform 500ms linear;
+}
+.scene-flip:hover .box {
+  transform: rotateY(180deg);
 }
