@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form class="form">
+      <input
+        type="text"
+        class="input"
+        name="user_name"
+        placeholder="Name*"
+        required
+        minlength="2"
+        pattern="^[a-zA-Zа-яА-ЯіІїЇ]+$"
+      />
+      <input type="email" class="input" name="user_email" placeholder="Email" />
+      <input
+        type="phone"
+        class="input"
+        name="user_phone"
+        placeholder="Phone*"
+        required
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+        title="xxx-xxx-xx-xx"
+      />
+      <input type="search" class="input" placeholder="Search" />
+      <input type="password" class="input" placeholder="Password" />
+      <textarea
+        name="user_comment"
+        id=""
+        placeholder="Comment"
+        class="textarea"
+      ></textarea>
+      <fieldset class="age">
+        <legend class="your">Your age</legend>
+        <label for="radio-input">18</label>
+        <input type="radio" id="radio-input" name="user_age" value="18" />
+        <label>
+          <span>25</span>
+          <input type="radio" name="user_age" value="25" />
+        </label>
+        <label for="radio-input-35">35</label>
+        <input type="radio" id="radio-input-35" name="user_age" value="35" />
+      </fieldset>
+      <fieldset>
+        <legend>Your hobby</legend>
+        <label>
+          <span>tennis</span>
+          <input type="checkbox" name="user_hobby" value="tennis"
+        /></label>
+        <label>
+          <span> reading</span>
+          <input type="checkbox" name="user_hobby" value="reading"
+        /></label>
+        <label>
+          <span> football</span>
+          <input type="checkbox" name="user_hobby" value="football"
+        /></label>
+      </fieldset>
+      <select name="user_car" id="">
+        <optgroup label="Premium">
+          <option value="Audi">Audi</option>
+          <option value="BMW">BMW</option>
+          <option value="MAZDA">MAZDA</option>
+        </optgroup>
+        <optgroup label="Base">
+          <option value="Audi">Audi</option>
+          <option value="BMW">BMW</option>
+          <option value="MAZDA">MAZDA</option>
+        </optgroup>
+        <optgroup label="Drop">
+          <option value="Audi">Audi</option>
+          <option value="BMW">BMW</option>
+          <option value="MAZDA">MAZDA</option>
+        </optgroup>
+      </select>
+      <select name="user_car" multiple>
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="MAZDA">MAZDA</option>
+      </select>
+      <button type="submit" class="form-btn">Send</button>
+    </form>
+  </body>
+</html>
